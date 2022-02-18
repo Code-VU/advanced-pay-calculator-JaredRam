@@ -1,22 +1,35 @@
 def calculatePay():
+
+    def compute_pay(hours, rate):
+        try:
+            hours = float(hours)
+            rate = float(rate)
+            if hours > 40.0:
+                pay = (rate * 40) + ((hours - 40) * (rate * 1.5))
+            else:
+                pay = rate * hours
+            
+            print("Pay: ", pay)
+
+        except:
+            print('Error, please enter numeric input')
     
     # This first line is provided for you
-    hrs = input("Enter Hours:")
-    rate = input("Enter Rate: ")
-
-    
+    hours = input("Enter Hours: ")
     try:
-        hrs = float(hrs)
-        rate = float(rate)
-        if hrs > 40.0:
-            pay = (rate * 40) + ((hrs - 40) * (rate * 1.5))
-        else:
-            pay = rate * hrs
-        
-        print("Pay: ", pay)
-
+        hours = int(hours)
     except:
-        print('Error, please enter numeric input\n')
+        print('Error, please enter numeric input')
+        quit()
+
+    rate = input("Enter Rate: ")
+    try:
+        rate = int(rate)
+    except:
+        print('Error, please enter numeric input')
+        quit()
+    
+    compute_pay(hours, rate)
     
     # end assignment
 
@@ -24,4 +37,4 @@ def calculatePay():
 ## uncomment calculatePay() and run > python payCalculator.py
 ## ***IMPORTANT*** please recomment before you submit/sync your assignment.
 ## OR YOUR TEST WILL NOT RUN
-## calculatePay()
+calculatePay()
